@@ -25,7 +25,8 @@ $pageData = [
     'columns' => ['kuis_nama', 'kuis_deskripsi'],
     'tableHeader' => ['Judul Kuis', 'Deskripsi'],
     'primaryKey' => 'kuis_id',
-    'insertTable' => 'kuis'
+    'insertTable' => 'kuis',
+    'parent' => 'kategori'
   ],
 
   'soal' => [
