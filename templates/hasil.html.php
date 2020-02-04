@@ -73,7 +73,9 @@ $i = 1;
         <div class="alert <?=$alert?>">
           <?=!empty($teks) ? '<h6>' . $teks . '</h6>': ''?>
           <i class="<?=$icon?> mr-2" aria-hidden="true"></i> <?=$pilihan['teks_jawaban']?>
-          <div class="ml-auto"><b>Nilai: <?=$pilihan['nilai']?></b></div>
+					<?php if ($kuis['buka_hasil'] == 1): ?>
+					<div class="ml-auto"><b>Nilai: <?=$pilihan['nilai']?></b></div>
+					<?php endif; ?>
         </div>
         <?php endforeach; ?>
       </div>
@@ -87,7 +89,7 @@ $i = 1;
   <div class="card">
 	  <div class="card-body">
 		  <h3 class="text-center">Nilai Anda:</h3>
-			<h1 class="text-center"><?=array_sum($nilai)?></h1>
+			<h1 class="text-center"><?=$kuis['buka_hasil'] == 1 ? array_sum($nilai) : '-'?></h1>
 		</div>
 	</div>
 </div>
