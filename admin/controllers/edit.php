@@ -48,8 +48,8 @@ $title = 'Tambah ' . ucfirst($page);
 // Set tombol submit
 $submit = 'simpanBaru';
 
-// Kalau page == pelajaran atau kelas, ambil data kategori/angkatannya
-if ($page == 'pelajaran' || $page == 'kelas') {
+// Kalau page == pelajaran atau kelas atau kuis, ambil data kategori/angkatannya
+if ($page == 'pelajaran' || $page == 'kelas' || $page == 'kuis') {
   $dataParent = $pageData[$page]['parent'] . '_id';
 
   // Ambil semua data kategori/kelas

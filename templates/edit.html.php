@@ -16,8 +16,8 @@
                 <input type="text" id="kode_<?php echo $page; ?>" name="data[<?=$pageData[$page]['insertTable']?>_kode]" class="form-control" value="<?=(isset($_GET['id'])) ? $data[$dataKode] : '' ?>">
               </div>
             <?php endif; ?>
-            <!-- Kalau page == pelajaran atau kelas, tambah pilihan kategori/angkatan -->
-            <?php if ($page == "pelajaran" || $page == "kelas"): ?>
+            <!-- Kalau page == pelajaran atau kelas atau kuis, tambah pilihan kategori/angkatan -->
+            <?php if ($page == "pelajaran" || $page == "kelas" || $page == "kuis"): ?>
             <div class="form-group">
               <label class="form-label" for="pilih-<?=$pageData[$page]['parent']?>"><?=ucfirst($pageData[$page]['parent'])?></label>
               <select name="data[<?=$pageData[$page]['parent']?>_id]" id="pilih-<?=$pageData[$page]['parent']?>" class="form-control custom-select">
@@ -27,7 +27,6 @@
               </select>
             </div>
             <?php endif; ?>
-
             <!-- Deskripsi -->
             <div class="form-group">
               <label for="deskripsi" class="form-label">Deskripsi</label>
