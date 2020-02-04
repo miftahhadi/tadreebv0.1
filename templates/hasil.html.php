@@ -5,19 +5,24 @@ $i = 1;
 <h2>Hasil Tugas - <?=$kuis['kuis_nama']?></h2>
 <div class="row">
 	<div class="col-md-8">
-    <?php
+		<?php if ($kuis['buka_hasil'] != 1): ?>
+		<div class="alert alert-icon alert-danger" role="alert">
+			<i class="fe fe-alert-circle mr-2" aria-hidden="true"></i> Kunci jawaban belum dibuka.
+		</div>
+		<?php
+		endif;
+
     $nilai = [];
     foreach ($daftarSoal as $soal):
 
       // Ambil semua pilihan jawaban
       $stmtPilihan->execute(['soal_id' => $soal['soal_id']]);
-      $pilihans = $stmtPilihan->fetchAll();
+      $pilihans = $stmtPilihan->fetchAll(PDO::FETCH_ASSOC);
 
       // Ambil semua jawaban peserta
       $data['soal_id'] = $soal['soal_id'];
       $stmtJawaban->execute($data);
-      $soal['jawaban_peserta'] = $stmtJawaban->fetchAll();
-
+      $soal['jawaban_peserta'] = $stmtJawaban->fetchAll(PDO::FETCH_COLUMN);
     ?>
 	  <div class="card">
       <div class="card-header">
@@ -31,9 +36,9 @@ $i = 1;
         foreach ($pilihans as $pilihan):
 
 					// Default properties untuk tampilan jawaban
-					$alert = "alert-secondary";
-					$teks = "";
-					$icon = "fa fa-puzzle-piece";
+					$alert = 'alert-secondary';
+					$teks = '';
+					$icon = 'fa fa-puzzle-piece';
 
           // Tandai mana jawaban peserta
 					if (in_array($pilihan['jawaban_id'], $soal['jawaban_peserta'])) {
@@ -44,28 +49,24 @@ $i = 1;
 
           // Set tampilan jika hasil sudah dibuka
           if ($kuis['buka_hasil'] == 1) {
-            foreach ($soal['jawaban_peserta'] as $jwbPeserta) {
-
-              if (in_array($pilihan['jawaban_id'], $jwbPeserta) && $pilihan['benar'] == 1) {
-                $alert = "alert-primary";
-                $teks = "Jawaban Anda:";
-                $icon = "fa fa-check-circle";
-                array_push($nilai, $pilihan['nilai']);
-              } else if (in_array($pilihan['jawaban_id'], $jwbPeserta) && $pilihan['benar'] == 0)  {
-                $alert = "alert-danger";
-                $teks = "Jawaban Anda:";
-                $icon = "fa fa-times-circle";
-                array_push($nilai, $pilihan['nilai']);
-              } else if (!in_array($pilihan['jawaban_id'], $jwbPeserta) && $pilihan['benar'] == 1)  {
-                $alert = "alert-success";
-                $teks = "Jawaban Benar:";
-                $icon = "fa fa-check-circle";
-              } else if (!in_array($pilihan['jawaban_id'], $jwbPeserta)) {
-                $alert = "alert-secondary";
-                $teks = "";
-                $icon = "fa fa-puzzle-piece";
-              }
-
+            if (in_array($pilihan['jawaban_id'], $soal['jawaban_peserta']) && $pilihan['benar'] == 1) {
+              $alert = "alert-primary";
+              $teks = "Jawaban Anda:";
+              $icon = "fa fa-check-circle";
+              array_push($nilai, $pilihan['nilai']);
+            } else if (in_array($pilihan['jawaban_id'], $soal['jawaban_peserta']) && $pilihan['benar'] == 0)  {
+              $alert = "alert-danger";
+              $teks = "Jawaban Anda:";
+              $icon = "fa fa-times-circle";
+              array_push($nilai, $pilihan['nilai']);
+            } else if (!in_array($pilihan['jawaban_id'], $soal['jawaban_peserta']) && $pilihan['benar'] == 1)  {
+              $alert = "alert-success";
+              $teks = "Jawaban Benar:";
+              $icon = "fa fa-check-circle";
+            } else if (!in_array($pilihan['jawaban_id'], $soal['jawaban_peserta'])) {
+              $alert = "alert-secondary";
+              $teks = "";
+              $icon = "fa fa-puzzle-piece";
             }
           }
         ?>
