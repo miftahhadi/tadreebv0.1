@@ -70,6 +70,7 @@ $resultOnPage = 50;
 // Calculate the page to get the result we need from the table
 $calcPage = ($paged - 1) * $resultOnPage;
 
+// Ambil semua item
 $query = 'SELECT * FROM ' . $objeks[$objek]['table'] . ' WHERE ' . $objeks[$objek]['where'] . $objeks[$objek]['and'] . ' ORDER BY ' . $objeks[$objek]['primaryKey'] . ' DESC LIMIT :offset, :number';
 
 $daftarItem = runQuery($db, $query, [$placeholder => $_GET['id'], 'offset' => $calcPage, 'number' => $resultOnPage])->fetchAll();

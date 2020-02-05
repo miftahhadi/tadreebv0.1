@@ -36,6 +36,10 @@ if (isset($_GET['page'])) {
 
     include __DIR__ . '/controllers/importcsv.php';
 
+  } elseif ($page == 'monitor') {
+
+    include __DIR__ . '/controllers/monitor.php';
+
   } else { // Kalau gak ada action, list data
 
     include __DIR__ . '/controllers/listdata.php';

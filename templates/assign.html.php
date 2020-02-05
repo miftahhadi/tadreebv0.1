@@ -49,14 +49,13 @@
 <!-- Pagination -->
 <div>
   <ul class="pagination justify-content-center">
-
     <?php if ($paged > 1): ?>
     <li class="page-item page-prev">
-      <a class="page-link" href="index.php?page=<?=$page?>&paged=<?=$paged-1?>" tabindex="-1">
+      <a class="page-link" href="index.php?page=<?=$page?>&action=build&id=<?=$_GET['id']?>&assign=<?=$_GET['assign']?>&paged=<?=$paged-1?>" tabindex="-1">
         <i class="fe fe-chevron-left"></i>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>">1</a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>&action=build&id=<?=$_GET['id']?>&assign=<?=$_GET['assign']?>">1</a></li>
     <?php endif; ?>
 
     <?php if ($paged > 2): ?>
@@ -64,36 +63,35 @@
     <?php endif; ?>
 
     <?php if ($paged-2 > 2): ?>
-    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>&paged=<?=$paged-2?>"><?=$paged-2?></a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>&action=build&id=<?=$_GET['id']?>&assign=<?=$_GET['assign']?>&paged=<?=$paged-2?>"><?=$paged-2?></a></li>
     <?php endif; ?>
 
     <?php if ($paged-1 > 2): ?>
-    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>&paged=<?=$paged-1?>"><?=$paged-1?></a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>&action=build&id=<?=$_GET['id']?>&assign=<?=$_GET['assign']?>&paged=<?=$paged-1?>"><?=$paged-1?></a></li>
     <?php endif; ?>
 
-    <li class="page-item active"><a class="page-link" href="index.php?page=<?=$page?>&paged=<?=$paged?>"><?=$paged?></a></li>
+    <li class="page-item active"><a class="page-link" href="index.php?page=<?=$page?>&action=build&id=<?=$_GET['id']?>&assign=<?=$_GET['assign']?>&paged=<?=$paged?>"><?=$paged?></a></li>
 
     <?php if ($paged+1 < ceil($totalRows / $resultOnPage)+1): ?>
-    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>&paged=<?=$paged+1?>"><?=$paged+1?></a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>&action=build&id=<?=$_GET['id']?>&assign=<?=$_GET['assign']?>&paged=<?=$paged+1?>"><?=$paged+1?></a></li>
     <?php endif; ?>
 
     <?php if ($paged+2 < ceil($totalRows / $resultOnPage)+1): ?>
-    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>&paged=<?=$paged+2?>"><?=$paged+2?></a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>&action=build&id=<?=$_GET['id']?>&assign=<?=$_GET['assign']?>&paged=<?=$paged+2?>"><?=$paged+2?></a></li>
     <?php endif; ?>
 
     <?php if ($paged < ceil($totalRows / $resultOnPage)-2): ?>
     <li class="page-item"><span class="page-link">...</span></li>
-    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>&paged=<?=ceil($totalRows / $resultOnPage)?>"><?=ceil($totalRows / $resultOnPage)?></a></li>
+    <li class="page-item"><a class="page-link" href="index.php?page=<?=$page?>&action=build&id=<?=$_GET['id']?>&assign=<?=$_GET['assign']?>&paged=<?=ceil($totalRows / $resultOnPage)?>"><?=ceil($totalRows / $resultOnPage)?></a></li>
     <?php endif; ?>
 
     <?php if ($paged < ceil($totalRows / $resultOnPage)): ?>
     <li class="page-item page-next">
-      <a class="page-link" href="index.php?page=<?=$page?>&paged=<?=$paged+1?>">
+      <a class="page-link" href="index.php?page=<?=$page?>&action=build&id=<?=$_GET['id']?>&assign=<?=$_GET['assign']?>&paged=<?=$paged+1?>">
         <i class="fe fe-chevron-right"></i>
       </a>
     </li>
     <?php endif; ?>
-
   </ul>
 </div>
 <?php endif; ?>
