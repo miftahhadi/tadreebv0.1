@@ -63,6 +63,11 @@ $navArray = [
           'subLink' => 'index.php?page=kelas'
         ]
       ]
+    ],
+    [
+      'title' => 'Hasil Tugas',
+      'link' => 'index.php?page=monitor',
+      'icon' => 'monitor'
     ]
   ],
   'front' => [

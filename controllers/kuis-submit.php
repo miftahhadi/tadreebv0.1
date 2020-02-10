@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $pelajaran = findById($db, 'pelajaran INNER JOIN section USING (pelajaran_id)', 'section_id', $_POST['section_id'])->fetch(PDO::FETCH_ASSOC);
 
 // define the title
-define('PAGE_TITLE', 'Submit Kuis');
+$pageTitle = 'Submit Kuis';
 
 // Set page template
 $pageTemplate = 'kuis-submit.html.php';

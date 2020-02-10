@@ -65,6 +65,9 @@ if ($page == 'login') {
 
 }
 
+// Set judul halaman
+define('PAGE_TITLE' , $pageTitle);
+
 // Load halaman
 ob_start();
 

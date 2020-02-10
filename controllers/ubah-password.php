@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $backLink = './index.php?page=profil';
 
 // Set the page title
-define('PAGE_TITLE', 'Ubah Password');
+$pageTitle = 'Ubah Password';
 
 // Set the template
 $pageTemplate = 'ubah-password.html.php';

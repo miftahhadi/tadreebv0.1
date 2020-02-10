@@ -67,7 +67,7 @@ if (empty($findKuis)) { // Kuis ini tidak terdaftar di section ini, munculkan 40
 } else { // Masih di halaman informasi kuis
 
   // Set title page
-  define('PAGE_TITLE', $kuis['kuis_nama'] . ' - ' . $pelajaran['pelajaran_nama']);
+  $pageTitle = $kuis['kuis_nama'] . ' - ' . $pelajaran['pelajaran_nama'];
 
   $pageTemplate = 'kuis.html.php';
 

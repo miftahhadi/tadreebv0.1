@@ -37,7 +37,7 @@ if (isset($_GET['section']) && isset($_GET['kuis'])) {
 } else {
 
   // Set the page title
-  define('PAGE_TITLE', $pelajaran['pelajaran_nama']);
+  $pageTitle = $pelajaran['pelajaran_nama'];
 
   // Set the template
   $pageTemplate = 'pelajaran.html.php';

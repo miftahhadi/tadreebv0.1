@@ -19,4 +19,4 @@ $kuiss = itemSetting($db, $listKuis, 'kuis_setting', 'kuis_id');
 $kuisPeserta = $db->prepare('SELECT * FROM kuis_peserta WHERE user_id = :user_id AND kuis_id = :kuis_id AND section_id = :section_id AND kelas_id = :kelas_id');
 
 // Set judul halaman
-define('PAGE_TITLE', $section['section_nama'] . ' - ' . $pelajaran['pelajaran_nama']);
+$pageTitle = $section['section_nama'] . ' - ' . $pelajaran['pelajaran_nama'];

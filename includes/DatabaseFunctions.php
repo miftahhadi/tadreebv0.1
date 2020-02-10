@@ -18,7 +18,7 @@ function runQuery($db, $query, $args = NULL) {
 
 // select function
 function listAll($db, $table, $options = '') {
-  $query = 'SELECT * FROM ' . $table . $options;
+  $query = 'SELECT * FROM ' . $table . ' ' . $options;
 
   $result = runQuery($db, $query);
 
@@ -35,7 +35,7 @@ function listByColumn($db, $table, $column, $options = '') {
 
 // find data by id
 function findById($db, $table, $primaryKey, $value, $options = '') {
-	$query = 'SELECT * FROM ' . $table . ' WHERE ' . $primaryKey . '= :value ' . $options ;
+	$query = 'SELECT * FROM ' . $table . ' WHERE ' . $primaryKey . '= :value ' . ' ' . $options ;
 
 	$parameters = [
 		'value' => $value

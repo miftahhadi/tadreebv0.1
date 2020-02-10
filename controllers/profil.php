@@ -41,7 +41,7 @@ $genders = ['Laki-laki', 'Perempuan'];
 
 
 // Set the page title
-define('PAGE_TITLE', 'Profil - ' . $user['nama']);
+$pageTitle = 'Profil - ' . $user['nama'];
 
 // Set the template
 $pageTemplate = 'profil.html.php';

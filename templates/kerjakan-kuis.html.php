@@ -1,7 +1,7 @@
 <div class="row d-flex justify-content-center">
   <div class="col-md-9">
     <form action="./index.php?page=kuis-submit" method="post" id="kuis">
-      <h3 class="text-center">Kuis Susah Susah Dikit</h3>
+      <h3 class="text-center"><?=$kuis['kuis_nama']?></h3>
       <div class="row">
         <?php
         $i = 1;
