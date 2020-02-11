@@ -1,7 +1,7 @@
 <div class="row d-flex justify-content-center">
 <!-- Content-->
   <div class="col-md-9">
-    <nav aria-label="breadcrumb"> <ol class="breadcrumb"> <li class="breadcrumb-item"><a href="/">Halaman Depan</a></li><li class="breadcrumb-item"><a href="pelajaran.php?id=1&kelas=1"><?=$pelajaran['pelajaran_nama']?></a></li></ol></nav>
+    <nav aria-label="breadcrumb"> <ol class="breadcrumb"> <li class="breadcrumb-item"><a href=".">Halaman Depan</a></li><li class="breadcrumb-item"><a href="pelajaran.php?id=1&kelas=1"><?=$pelajaran['pelajaran_nama']?></a></li></ol></nav>
     <div class="card">
       <div class="card-body">
         <h2 class="mt-0 mb-4"><?=htmlspecialchars($section['section_nama'])?></h2>
