@@ -41,7 +41,7 @@ $aksesPeserta = runQuery($db, 'SELECT * FROM users INNER JOIN kelas_peserta USIN
 
 if (empty($findKuis)) { // Kuis ini tidak terdaftar di section ini, munculkan 404
 
-  define('PAGE_TITLE', 'Tidak Ditemukan');
+  $pageTitle = 'Tidak Ditemukan';
 
   $pageTemplate = '404.html.php';
 
@@ -52,7 +52,7 @@ if (empty($findKuis)) { // Kuis ini tidak terdaftar di section ini, munculkan 40
 
 } elseif (isset($_GET['doing'])) { // Mode ngerjain kuis
   // Set title page
-  define('PAGE_TITLE', 'Mengerjakan Tugas - ' . $kuis['kuis_nama']);
+  $pageTitle = 'Mengerjakan Tugas - ' . $kuis['kuis_nama'];
 
   // Set template untuk ngerjain kuis
   $pageTemplate = 'kerjakan-kuis.html.php';
@@ -63,6 +63,12 @@ if (empty($findKuis)) { // Kuis ini tidak terdaftar di section ini, munculkan 40
   // Buat prepared statement untuk ambil pilihan jawaban
   $query = 'SELECT * FROM jawaban WHERE soal_id = :soal_id';
   $stmtPilihan = $db->prepare($query);
+
+  // Sudah pernah ngerjain atau belum?
+  $mulai = $peserta['waktu_mulai'] ?? date('Y-m-d H:i');
+  $setMulai = $peserta['waktu_mulai'] ?? 0;
+  $attempt = $peserta['attempt'] ?? 1;
+
 
 } else { // Masih di halaman informasi kuis
 
@@ -75,9 +81,6 @@ if (empty($findKuis)) { // Kuis ini tidak terdaftar di section ini, munculkan 40
 
 // Kalau peserta belum pernah kerjakan kuis, catat saat mulai ngerjain
 if (isset($_GET['doing']) && empty($peserta)) {
-
-  // Kapan pertama kali mulai mengerjakan?
-  $mulai = date('Y-m-d H:i:s');
 
   $dataPeserta = [
     'user_id' => $_SESSION['user_id'],
