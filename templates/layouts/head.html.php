@@ -20,6 +20,7 @@
     <!-- Javascript -->
     <script src="<?=LOCATOR?>/assets/js/vendors/jquery-3.2.1.min.js"></script>
     <script src="<?=LOCATOR?>/assets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="<?=LOCATOR?>/assets/js/moment.min.js"></script>
     <!-- Dashboard Core -->
     <link href="<?=LOCATOR?>/assets/css/dashboard.css" rel="stylesheet" />
     <!-- CKEditor 4 -->
